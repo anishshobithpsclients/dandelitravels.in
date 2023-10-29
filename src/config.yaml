@@ -1,5 +1,5 @@
 site:
-  name: AstroWind
+  name: DandeliTravels
   site: 'https://astrowind.vercel.app'
   base: '/'
   trailingSlash: false
@@ -9,23 +9,19 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: DandeliTravels
+    template: '%s — DandeliTravels'
+  description: "Discover the untamed beauty of Dandeli, Karnataka, with DandeliTravels, your ultimate travel guide and partner. Dive into an array of thrilling outdoor escapades, from river rafting and jungle safaris to trekking through lush forests. At the same time, we provide serene homestays and resorts for those seeking relaxation and tranquility. Let us be your compass to the wild, where you can explore the heart of Dandeli's rich biodiversity, pristine landscapes, and culture."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: DandeliTravels
     images:
       - url: '~/assets/images/default.png'
         width: 1200
         height: 628
     type: website
-  twitter:
-    handle: '@onwidget'
-    site: '@onwidget'
-    cardType: summary_large_image
 
 i18n:
   language: en
@@ -66,7 +62,7 @@ analytics:
       id: null # or "G-XXXXXXXXXX"
 
 ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  theme: 'light:only' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 
   tokens:
     default:
