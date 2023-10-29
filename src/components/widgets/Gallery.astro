@@ -1,0 +1,178 @@
+---
+import Image from '~/components/common/Image.astro';
+import Button from '~/components/ui/Button.astro';
+import type { CallToAction } from '~/types';
+
+function chunkArray<T>(arr: T[], chunkSize: number): T[][] {
+  const chunkedArray: T[][] = [];
+  for (let i = 0; i < arr.length; i += chunkSize) {
+    chunkedArray.push(arr.slice(i, i + chunkSize));
+  }
+  return chunkedArray;
+}
+
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffledArray = [...array];
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  }
+  return shuffledArray;
+}
+
+export interface Props {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  content?: string;
+  actions?: string | CallToAction[];
+  image?: string | any; // TODO: find HTMLElementProps
+}
+
+const {
+  id,
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline,
+  content = await Astro.slots.render('content'),
+  actions = await Astro.slots.render('actions'),
+  image = await Astro.slots.render('image'),
+} = Astro.props;
+
+const images = [
+  {
+    src: '~/assets/images/gallery/image1.jpg',
+    alt: 'Image 1',
+  },
+  {
+    src: '~/assets/images/gallery/image2.jpg',
+    alt: 'Image 2',
+  },
+  {
+    src: '~/assets/images/gallery/image3.jpg',
+    alt: 'Image 3',
+  },
+  {
+    src: '~/assets/images/gallery/image4.jpg',
+    alt: 'Image 4',
+  },
+  {
+    src: '~/assets/images/gallery/image5.jpg',
+    alt: 'Image 5',
+  },
+  {
+    src: '~/assets/images/gallery/image6.jpg',
+    alt: 'Image 6',
+  },
+  {
+    src: '~/assets/images/gallery/image7.jpg',
+    alt: 'Image 7',
+  },
+  {
+    src: '~/assets/images/gallery/image8.jpg',
+    alt: 'Image 8',
+  },
+  {
+    src: '~/assets/images/gallery/image9.jpg',
+    alt: 'Image 9',
+  },
+  {
+    src: '~/assets/images/gallery/image10.jpg',
+    alt: 'Image 10',
+  },
+  {
+    src: '~/assets/images/gallery/image11.jpg',
+    alt: 'Image 11',
+  },
+  {
+    src: '~/assets/images/gallery/image12.jpg',
+    alt: 'Image 12',
+  },
+  {
+    src: '~/assets/images/gallery/image13.jpg',
+    alt: 'Image 13',
+  },
+  {
+    src: '~/assets/images/gallery/image14.jpg',
+    alt: 'Image 14',
+  },
+  {
+    src: '~/assets/images/gallery/image15.jpg',
+    alt: 'Image 15',
+  },
+  {
+    src: '~/assets/images/gallery/image16.jpg',
+    alt: 'Image 16',
+  }
+]
+
+const chunkedImages =  shuffleArray(chunkArray(images, 4));
+
+---
+
+<section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
+    <div class="py-12 md:py-20">
+      <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
+        {
+          tagline && (
+            <p
+              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase"
+              set:html={tagline}
+            />
+          )
+        }
+        {
+          title && (
+            <h1
+              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
+              set:html={title}
+            />
+          )
+        }
+        <div class="max-w-3xl mx-auto">
+          {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
+          {
+            actions && (
+              <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
+                {Array.isArray(actions) ? (
+                  actions.map((action) => (
+                    <div class="flex w-full sm:w-auto">
+                      <Button {...(action || {})} class="w-full sm:mb-0" />
+                    </div>
+                  ))
+                ) : (
+                  <Fragment set:html={actions} />
+                )}
+              </div>
+            )
+          }
+        </div>
+        {content && <Fragment set:html={content} />}
+      </div>
+      <div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {
+              chunkedImages.map((chunk) => (
+                <div class="grid gap-4">
+                  {chunk.map((image) => (
+                    <Image
+                      class="h-auto max-w-full rounded-lg"
+                      widths={[400, 768, 1024, 2040]}
+                      sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                      loading="eager"
+                      src={image.src}
+                      alt={image.alt}
+                    />
+                  ))}
+                </div>
+              ))
+            }
+      </div>
+      </div>
+    </div>
+  </div>
+</section>

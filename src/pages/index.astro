@@ -1,5 +1,5 @@
 ---
-
+import Gallery from '~/components/widgets/Gallery.astro';
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero2.astro';
 import Features2 from '~/components/widgets/Features2.astro';
@@ -12,14 +12,21 @@ const metadata = {
 
 ---
 <Layout metadata={metadata}>
+  <div id="home">
   <Hero
     actions={[
-      {
-        variant: 'primary',
-        text: 'Book Now',
-        href: 'tel:9980677640',
-        icon: 'tabler:phone',
-      },
+  {
+    variant: 'primary',
+    text: 'Call 1',
+    href: 'tel:8431474417',
+    icon: 'tabler:phone',
+  },
+  {
+    variant: 'primary',
+    text: 'Call 2',
+    href: 'tel:9980677640',
+    icon: 'tabler:phone',
+  },
       { text: 'Learn more', href: '#services' },
     ]}
     image={{ src: '~/assets/images/image.png', alt: 'Hero Image' }}
@@ -37,6 +44,7 @@ const metadata = {
       >
     </Fragment>
   </Hero>
+</div>
   <Features2
     transition:animate="slide"
     id="services"
@@ -87,6 +95,13 @@ const metadata = {
     </Fragment>
   </Features2>
 
+  <Gallery
+    id="gallery"
+    title="Chillscapes: A Gallery of Cool Moments"
+    subtitle="Exploring the Icy Beauty of Chilly Moments"
+    tagline="Chill Vibes Captured"
+  />
+  
   <Content
     id="accommodations"
     isReversed

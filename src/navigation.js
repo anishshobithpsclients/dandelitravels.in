@@ -1,15 +1,36 @@
 export const headerData = {
   links: [
     {
+      text: 'Home',
+      href: '#home',
+    },
+    {
       text: 'Services',
       href: '#services',
+    },
+    {
+      text: 'Gallery',
+      href: '#gallery',
     },
     {
       text: 'Accommodations',
       href: '#accommodations',
     }
   ],
-  actions: [{ text: 'Book Now', href: 'https://api.whatsapp.com/send/?phone=99806%C2%A077640&text=Hello, I\'m ready to book my Dandeli adventure! 🌲🚣 Please confirm my reservation. Excitement is building!&type=phone_number&app_absent=0', target: '_blank', icon: 'tabler:brand-whatsapp' }],
+  actions: [
+    {
+      text: 'Book Now via WhatsApp',
+      href: 'https://api.whatsapp.com/send/?phone=99806%C2%A077640&text=Hello, I\'m ready to book my Dandeli adventure! 🌲🚣 Please confirm my reservation. Excitement is building!&type=phone_number&app_absent=0',
+      target: '_blank',
+      icon: 'tabler:brand-whatsapp'
+    },
+    {
+      text: 'Contact Us',
+      href: 'mailto:example@example.com',
+      target: '_blank',
+      icon: 'tabler:mail'
+    }
+  ],
 };
 
 export const footerData = {

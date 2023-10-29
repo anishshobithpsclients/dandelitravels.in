@@ -8,7 +8,6 @@ import Favicons from '~/components/Favicons.astro';
 import CustomStyles from "~/components/CustomStyles.astro"
 import Metadata from '~/components/common/Metadata.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
-import { ViewTransitions } from 'astro:transitions';
 
 import type { MetaData as MetaDataType } from '~/types';
 
@@ -27,10 +26,9 @@ const { language, textDirection } = I18N;
     <CommonMeta />
     <CustomStyles />
     <Metadata {...metadata} />
-    <ViewTransitions fallback="swap"/>
   </Head>
 
-  <body class="antialiased text-default bg-page tracking-tight" transition:animate="slide">
+  <body class="antialiased text-default bg-page tracking-tight">
     <slot />
 
     <BasicScripts />
