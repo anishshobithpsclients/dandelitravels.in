@@ -154,10 +154,10 @@ const chunkedImages =  shuffleArray(chunkArray(images, 4));
         {content && <Fragment set:html={content} />}
       </div>
       <div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
             {
               chunkedImages.map((chunk) => (
-                <div class="grid gap-4">
+                <div class="grid gap-2">
                   {chunk.map((image) => (
                     <Image
                       class="h-auto max-w-full rounded-lg"
