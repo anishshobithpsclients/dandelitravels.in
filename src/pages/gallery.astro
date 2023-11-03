@@ -1,0 +1,18 @@
+---
+import Gallery from '~/components/widgets/Gallery.astro';
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'DandeliTravels — Gallery',
+  ignoreTitleTemplate: true,
+};
+
+---
+<Layout metadata={metadata}>
+  <Gallery
+    id="gallery"
+    title="Chillscapes: A Gallery of Cool Moments"
+    subtitle="Exploring the Icy Beauty of Chilly Moments"
+    tagline="Chill Vibes Captured"
+  />
+</Layout>

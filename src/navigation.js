@@ -2,20 +2,20 @@ export const headerData = {
   links: [
     {
       text: 'Home',
-      href: '#home',
+      href: '/#home',
     },
     {
       text: 'Services',
-      href: '#services',
-    },
-    {
-      text: 'Gallery',
-      href: '#gallery',
+      href: '/#services',
     },
     {
       text: 'Accommodations',
-      href: '#accommodations',
-    }
+      href: '/#accommodations',
+    },
+    {
+      text: 'Gallery',
+      href: '/gallery',
+    },
   ],
   actions: [
     {

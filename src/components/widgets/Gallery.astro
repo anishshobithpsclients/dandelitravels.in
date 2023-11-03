@@ -40,74 +40,8 @@ const {
   image = await Astro.slots.render('image'),
 } = Astro.props;
 
-const images = [
-  {
-    src: '~/assets/images/gallery/image1.jpg',
-    alt: 'Image 1',
-  },
-  {
-    src: '~/assets/images/gallery/image2.jpg',
-    alt: 'Image 2',
-  },
-  {
-    src: '~/assets/images/gallery/image3.jpg',
-    alt: 'Image 3',
-  },
-  {
-    src: '~/assets/images/gallery/image4.jpg',
-    alt: 'Image 4',
-  },
-  {
-    src: '~/assets/images/gallery/image5.jpg',
-    alt: 'Image 5',
-  },
-  {
-    src: '~/assets/images/gallery/image6.jpg',
-    alt: 'Image 6',
-  },
-  {
-    src: '~/assets/images/gallery/image7.jpg',
-    alt: 'Image 7',
-  },
-  {
-    src: '~/assets/images/gallery/image8.jpg',
-    alt: 'Image 8',
-  },
-  {
-    src: '~/assets/images/gallery/image9.jpg',
-    alt: 'Image 9',
-  },
-  {
-    src: '~/assets/images/gallery/image10.jpg',
-    alt: 'Image 10',
-  },
-  {
-    src: '~/assets/images/gallery/image11.jpg',
-    alt: 'Image 11',
-  },
-  {
-    src: '~/assets/images/gallery/image12.jpg',
-    alt: 'Image 12',
-  },
-  {
-    src: '~/assets/images/gallery/image13.jpg',
-    alt: 'Image 13',
-  },
-  {
-    src: '~/assets/images/gallery/image14.jpg',
-    alt: 'Image 14',
-  },
-  {
-    src: '~/assets/images/gallery/image15.jpg',
-    alt: 'Image 15',
-  },
-  {
-    src: '~/assets/images/gallery/image16.jpg',
-    alt: 'Image 16',
-  }
-]
-
-const chunkedImages =  shuffleArray(chunkArray(images, 4));
+const images = await Astro.glob('~/assets/images/gallery/*.jpg');
+const chunkedImages =  shuffleArray(chunkArray(images.map((image) => image.default.src), 4));
 
 ---
 
@@ -164,10 +98,10 @@ const chunkedImages =  shuffleArray(chunkArray(images, 4));
                       widths={[400, 768, 1024, 2040]}
                       sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
                       loading="eager"
-                      src={image.src}
-                      alt={image.alt}
+                      src={image}
+                      alt={image}
                       width={1024}
-                      height={576}
+                      height={800}
                     />
                   ))}
                 </div>
