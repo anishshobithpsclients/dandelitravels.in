@@ -13,8 +13,8 @@ metadata:
     template: '%s — DandeliTravels'
   description: "Explore Dandeli, Karnataka's untamed beauty with DandeliTravels - your guide to thrilling adventures like river rafting, safaris, and jungle treks. Discover serene homestays and resorts for relaxation. Be guided to the heart of Dandeli's rich biodiversity and culture."
   robots:
-    index: false
-    follow: false
+    index: true
+    follow: true
   openGraph:
     site_name: DandeliTravels
     images:
