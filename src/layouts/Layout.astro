@@ -4,7 +4,6 @@ import { fade } from 'astro:transitions';
 import { I18N } from "~/utils/config";
 import { Head } from 'astro-capo'
 import CommonMeta from '~/components/common/CommonMeta.astro';
-import Favicons from '~/components/Favicons.astro';
 import { ViewTransitions  } from 'astro:transitions';
 import CustomStyles from "~/components/CustomStyles.astro"
 import Metadata from '~/components/common/Metadata.astro';
@@ -30,7 +29,7 @@ const { language, textDirection } = I18N;
     <Metadata {...metadata} />
   </Head>
 
-  <body class="antialiased text-default bg-page tracking-tight" transition:animate={fade({ duration: '0.4s' })}>
+  <body class="antialiased text-default tracking-tight" transition:animate={fade({ duration: '0.4s' })}>
     <slot />
 
     <BasicScripts />
@@ -40,5 +39,6 @@ const { language, textDirection } = I18N;
         content-visibility: auto;
       }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
   </body>
 </html>

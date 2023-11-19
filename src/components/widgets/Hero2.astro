@@ -1,6 +1,5 @@
 ---
-import Carousel from './Carousel.astro';
-import Image from '~/components/common/Image.astro';
+import Carousel from './carousel.astro';
 import type { CallToAction } from '~/types';
 import Button from '~/components/ui/Button.astro';
 
@@ -21,6 +20,9 @@ const {
   actions = await Astro.slots.render('actions'),
   image = await Astro.slots.render('image'),
 } = Astro.props;
+
+
+
 ---
 
 <section class="relative md:-mt-[76px] not-prose">
@@ -67,26 +69,25 @@ const {
         {content && <Fragment set:html={content} />}
       </div>
       <div class="basis-1/2">
-        {
-          image && (
-            <div class="relative m-auto max-w-5xl">
-              {typeof image === 'string' ? (
-                <Fragment set:html={image} />
-              ) : (
-                <Image
-                  class="mx-auto rounded-md w-full"
-                  widths={[400, 768, 1024, 2040]}
-                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                  loading="eager"
-                  width={600}
-                  height={600}
-                  {...image}
-                />
-                // <Carousel />
-              )}
-            </div>
-          )
-        }
+        <Carousel />
+            <!-- {
+              images.map((image, i) => (
+                <div class="embla__slide">
+                  <div class="embla__slide__img">
+                    <Image
+                      widths={[400, 768, 1024, 2040]}
+                      sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                      loading="eager"
+                      width={600}
+                      height={600}
+                      src={image.src}
+                      alt={image.alt}
+                    />
+                  </div>
+                </div>
+              ))} -->
+          </Carousel>
+        </div>
       </div>
     </div>
   </div>

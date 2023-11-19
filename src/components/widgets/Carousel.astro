@@ -1,37 +1,52 @@
 ---
-import Image from '~/components/common/Image.astro';
+import Image from "../common/Image.astro";
 
-interface Image {
-  src: string;
-  alt: string;
-}
+import Image1 from '~/assets/images/carousel/1.jpg';
+import Image2 from '~/assets/images/carousel/2.jpg';
+import Image3 from '~/assets/images/carousel/3.jpg';
+import Image4 from '~/assets/images/carousel/4.jpg';
+import Image5 from '~/assets/images/carousel/5.jpg';
+import Image6 from '~/assets/images/carousel/6.jpg';
+import Image7 from '~/assets/images/carousel/7.jpg';
+import Image8 from '~/assets/images/carousel/8.jpg';
 
-const images: Array<Image> = [{
-  src: '~/assets/images/image.png',
-  alt: 'Image 1',
-},
-{
-  src: '~/assets/images/image.jpg',
-  alt: 'Image 2',
-},
-{
-  src: '~/assets/images/image2.webp',
-  alt: 'Image 3',
-}];
----
-<div class="carousel rounded-box">
+const images = [
   {
-  images.map((image, i) => (
-    <div class="carousel-item">
-      <Image
-        widths={[400, 768, 1024, 2040]}
-        sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-        loading="eager"
-        width={600}
-        height={600}
-        src={image.src}
-        alt={image.alt}
-      />
-    </div>
-  ))}
+    src: Image1
+  },
+  {
+    src: Image2
+  },
+  {
+    src: Image3
+  },
+  {
+    src: Image4
+  },
+  {
+    src: Image5
+  },
+  {
+    src: Image6
+  },
+  {
+    src: Image7
+  },
+  {
+    src: Image8
+  },
+];
 
+---
+<div id="default-carousel" class="relative w-full" data-carousel="slide">
+    <!-- Carousel wrapper -->
+    <div class="relative h-[540px] overflow-hidden rounded-lg">
+      {
+        images.map((image) => (
+          <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <Image src={image.src} class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+          </div>
+        ))
+      }
+    </div>
+</div>

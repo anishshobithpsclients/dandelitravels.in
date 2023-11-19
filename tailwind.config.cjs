@@ -4,6 +4,9 @@ module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,svelte,ts,tsx,vue}', './node_modules/tw-elements/dist/js/**/*.js,'],
   theme: {
     extend: {
+      backgroundImage: {
+        'leaf': 'url("/leaf.svg")',
+      },
       colors: {
         primary: 'var(--aw-color-primary)',
         secondary: 'var(--aw-color-secondary)',
