@@ -26,7 +26,7 @@ export default defineConfig({
     applyBaseStyles: false
   }), sitemap(), mdx(), icon({
     include: {
-      mid: ['*']
+      mdi: ['*']
     }
   }), ...whenExternalScripts(() => partytown({
     config: {
