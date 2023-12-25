@@ -25,10 +25,10 @@ export const headerData = {
       icon: 'tabler:brand-whatsapp'
     },
     {
-      text: 'Contact',
-      href: 'mailto:example@example.com',
+      text: 'Call Now',
+      href: 'tel:+91 9980677640',
       target: '_blank',
-      icon: 'tabler:mail'
+      icon: 'tabler:phone'
     }
   ],
 };
