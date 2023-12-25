@@ -26,8 +26,7 @@ export default defineConfig({
     applyBaseStyles: false
   }), sitemap(), mdx(), icon({
     include: {
-      tabler: ['*'],
-      'flat-color-icons': ['template', 'gallery', 'approval', 'document', 'advertising', 'currency-exchange', 'voice-presentation', 'business-contact', 'database']
+      mid: ['*']
     }
   }), ...whenExternalScripts(() => partytown({
     config: {

@@ -71,11 +71,11 @@
   display: block;
 }
 
-[astro-icon].icon-light > * {
+[data-icon].icon-light > * {
   stroke-width: 1.2;
 }
 
-[astro-icon].icon-bold > * {
+[data-icon].icon-bold > * {
   stroke-width: 2.4;
 }
 
