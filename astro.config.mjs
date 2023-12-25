@@ -5,7 +5,6 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
-import compress from 'astro-compress';
 import icon from 'astro-icon';
 import tasks from './src/utils/tasks';
 import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
@@ -32,16 +31,7 @@ export default defineConfig({
     config: {
       forward: ['dataLayer.push']
     }
-  })), tasks(), compress({
-    CSS: true,
-    HTML: {
-      removeAttributeQuotes: false
-    },
-    Image: false,
-    JavaScript: true,
-    SVG: true,
-    Logger: 1
-  }), svelte(), react()],
+  })), tasks(), svelte(), react()],
   markdown: {
     remarkPlugins: [readingTimeRemarkPlugin]
   },
