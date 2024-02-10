@@ -41,8 +41,8 @@ const {
 } = Astro.props;
 
 const images = await Astro.glob('~/assets/images/gallery/*.(jp(e)?g|png|JPG)');
-const chunkedImages =  shuffleArray(chunkArray(images.map((image) => image.default.src), 4));
-
+const shuffledImages = shuffleArray(images.map((image) => image.default.src));
+const chunkedImages = chunkArray(shuffledImages, 4).slice(2);
 ---
 
 <section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
@@ -94,9 +94,6 @@ const chunkedImages =  shuffleArray(chunkArray(images.map((image) => image.defau
                   {chunk.map((image) => (
                     <Image
                       class="h-auto max-w-full rounded-lg"
-                      widths={[400, 768, 1024, 2040]}
-                      sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                      loading="eager"
                       src={image}
                       alt={image}
                       width={1024}
